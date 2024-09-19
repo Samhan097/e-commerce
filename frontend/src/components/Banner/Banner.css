@@ -1,0 +1,60 @@
+.banner-section {
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: space-between;
+    background-color: #e2f7ff;
+    padding: 50px 0;
+    width: 100%;
+  }
+  
+  .banner-image {
+    flex: 1;
+    max-width: 50%; /* Set image to take half the screen width */
+  }
+  
+  .banner-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .banner-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text and button horizontally */
+    justify-content: center; /* Center text vertically */
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Change the font */
+  }
+  
+  .banner-text h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Helvetica', sans-serif; /* Custom font */
+  }
+  
+  .banner-text p {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 20px;
+    font-family: 'Helvetica', sans-serif;
+  }
+  
+  .shop-now-btn {
+    padding: 12px 24px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Helvetica', sans-serif;
+  }
+  
+  .shop-now-btn:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,56 @@
+.service-features {
+    padding: 10px 0; /* Reduced padding */
+    background-color: #e3f2fd; /* New background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Adjust height to fit the content */
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px;
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Optional: limit maximum width */
+  }
+  
+  .feature-card {
+    background-color: #ffffff; /* White background color */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 0; /* Remove curved borders */
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 120px; /* Smaller height */
+  }
+  
+  .icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #007bff; /* Icon color */
+  }
+  
+  .feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  @media (max-width: 1200px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+  }
+  
