@@ -10,7 +10,7 @@
 
 .login-container {
   width: 300px;
-  margin:100px auto ; /* Center horizontally */
+  margin:180px auto ; /* Center horizontally */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -24,6 +24,7 @@
 
 .form-group {
   margin-bottom: 15px;
+  margin-right: 15px;
   text-align: left;
 }
 

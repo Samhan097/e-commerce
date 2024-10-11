@@ -1,11 +1,10 @@
-
 /* Hero section styling */
 .hero {
   position: relative;
-  background: url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNob3BwaW5nfGVufDB8fHx8MTY4MzcxMjYxNg&ixlib=rb-4.0.3&q=80&w=1600&h=600') no-repeat center center;
+  background: url('https://plus.unsplash.com/premium_photo-1661718842543-a4d678070955?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29tcHV0ZXIlMjBhY2Nlc3Nvcmllc3xlbnwwfHwwfHx8MA%3D%3D') no-repeat center center;
   background-size: cover;
-  height: 600px;
-  width: 100%; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -14,8 +13,8 @@
   text-align: center;
   color: white;
   padding-top: 80px; /* Ensure content is not hidden behind the fixed header */
+  animation: fadeIn 2s ease-out; /* Hero section animation */
 }
-
 
 /* Overlay styling */
 .hero::before {
@@ -25,7 +24,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  background: rgba(0, 0, 0, 0.6); /* Darker semi-transparent black overlay for better contrast */
   z-index: 1; /* Ensure the overlay is below the content */
 }
 
@@ -35,28 +34,69 @@
   z-index: 2; /* Ensure the content is above the overlay */
   max-width: 600px; /* Maximum width of the content */
   padding: 0 20px; /* Add padding if needed */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Initially translated down */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition for opacity and transform */
+  animation: slideUp 2s ease-out; /* Content animation */
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3rem; /* Larger font size for better visibility */
   margin: 0 0 20px;
+  opacity: 0;
+  animation: fadeInUp 2s 0.5s forwards; /* Fade and slide-in animation for heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Add text shadow for better contrast */
 }
 
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Increase font size for better readability */
   margin: 0 0 30px;
+  opacity: 0;
+  animation: fadeInUp 2s 1s forwards; /* Fade and slide-in animation for paragraph */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add text shadow for better contrast */
 }
 
-.hero button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
+.shop-now-btn {
+   /* Smooth transition for hover effect */
 }
 
-.hero button:hover {
-  background-color: #0056b3;
+.shop-now-btn:hover {
+  background-color: #848689; /* Blue background on hover */
+  color: white; /* White text on hover */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Add hover shadow for better visibility */
+  border-color: #858597; /* Darker blue border on hover */
+}
+
+/* Animation for fading in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation for sliding up */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for fade and slide up */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

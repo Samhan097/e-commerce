@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Products.css';
 import { useLocation } from 'react-router-dom'; // Import useLocation
+import ServiceFeatures from '../../components/ServiceFeatures/ServiceFeatures';
 
 
 // Sample product data (you might get this from an API)
@@ -11,6 +12,7 @@ const sampleProducts = [
     category: 'Ear Buds',
     price: '599',
     imageUrl: 'https://m.media-amazon.com/images/I/619gDUPcbNL.jpg',
+    hoverImageUrl: 'https://m.media-amazon.com/images/I/61ii4YSraEL.jpg',
     popularity: 1.5,
     ratings: 7,
   },
@@ -20,6 +22,7 @@ const sampleProducts = [
     category: 'Mobile',
     price: '899',
     imageUrl: 'https://images.samsung.com/is/image/samsung/p6pim/my/2302/gallery/my-galaxy-s23-s911-sm-s911bzebxme-534844778?$650_519_PNG$',
+    hoverImageUrl: 'https://i.ytimg.com/vi/BSYsXVFzmKA/maxresdefault.jpg',
     popularity: 3.5,
     ratings: 4,
   },
@@ -29,6 +32,7 @@ const sampleProducts = [
     category: 'Ear Buds',
     price: '799',
     imageUrl: 'https://earphones.lk/wp-content/uploads/2024/03/Xiaomi-Redmi-Buds-4-Lite-Black-01_600x.webp',
+    hoverImageUrl: 'https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/122370281_01/w=800,h=800,fit=pad',
     popularity: 2.5,
     ratings: 6,
   },
@@ -38,6 +42,7 @@ const sampleProducts = [
     category: 'Mobile',
     price: '849',
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBic59TWKPRTijPUZ7fuerbQaxJCy62qeKKg&s',
+    hoverImageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_Image_Thumbnail.width-1000.format-webp.webp',
 popularity: 4.5,
     ratings: 9,
   },
@@ -47,6 +52,7 @@ popularity: 4.5,
     category: 'Mobile',
     price: '699',
     imageUrl: 'https://geniusmobile.lk/wp-content/uploads/2024/01/Xiaomi-Redmi-Note-13-Pro-5G-8GB-RAM-256GB.jpg',
+    hoverImageUrl: 'https://i.ytimg.com/vi/QpvZpIBc6IU/maxresdefault.jpg',
 popularity: 3.5,
     ratings: 7,
   },
@@ -56,6 +62,7 @@ popularity: 3.5,
     category: 'Laptop',
     price: '1399',
     imageUrl: 'https://asset.msi.com/resize/image/global/product/product_8_20200407095650_5e8bdde272ae1.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
+    hoverImageUrl: 'https://laptopmedia.com/wp-content/uploads/2020/11/3-5.jpg',
 popularity: 4.5,
     ratings: 8,
   },
@@ -65,6 +72,7 @@ popularity: 4.5,
     category: 'JBL',
     price: '349',
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF3huqxa29nFnzdqTHAp92MFewZjNAVyi1pQ&s',
+    hoverImageUrl: 'https://www.designinfo.in/wp-content/uploads/2023/10/JBL-Tune-760NC-Blue-9.webp',
 popularity: 3.5,
     ratings: 7.5,
   },
@@ -74,6 +82,7 @@ popularity: 3.5,
     category: 'Mobile',
     price: '1299',
     imageUrl: 'https://cdn.dxomark.com/wp-content/uploads/medias/post-147160/Huawei-P60-Pro_featured-image-packshot-review-Recovered.jpg',
+    hoverImageUrl: 'https://www.notebookcheck.net/uploads/tx_nbc2/Huawei_P60_Pro.jpg',
 popularity: 5,
     ratings: 10,
   },
@@ -83,6 +92,7 @@ popularity: 5,
     price: 1099,
     category: 'Mobile',
     imageUrl: 'https://intouchtel.com/cdn/shop/products/COVERT6-IPHONE-14-PRO-MAX-02-CLEAR.jpg?v=1668940993&width=600',
+    hoverImageUrl: 'https://lamicallshop.com/cdn/shop/products/2_e054a351-c0d3-4e71-ac74-91320e678a06_900x.jpg?v=1680090918',
 popularity: 4,
     ratings: 8,
   },
@@ -92,6 +102,7 @@ popularity: 4,
     price: 899,
     category: 'Tab',
     imageUrl: 'https://images.samsung.com/is/image/samsung/assets/us/tablets/02282024/new/TabletPCD_meet-our-galaxy-tablets_02_Tab-S9-FE_PC.jpg?$570_N_JPG$',
+    hoverImageUrl: 'https://www.digitaltrends.com/wp-content/uploads/2023/10/samsung-galaxy-tab-s9-fe-plus-official.jpg?fit=720%2C479&p=1',
 popularity: 4.5,
     ratings: 9,
   },
@@ -101,6 +112,7 @@ popularity: 4.5,
     price: 2499,
     category: 'Laptop',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp16-space-m1-2021_AV3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1643239879000',
+    hoverImageUrl: 'https://www.notebookcheck.net/fileadmin/Notebooks/Apple/MacBook_Pro_16_2023_M3_Pro/IMG_1256.JPG',
 popularity: 5,
     ratings: 8,
   },
@@ -110,6 +122,7 @@ popularity: 5,
     price: 299,
     category: 'Ear Buds',
     imageUrl: 'https://uk.jlab.com/cdn/shop/products/GOAirPopBlackCover.jpg?v=1694639309&width=1445',
+    hoverImageUrl: 'https://i.rtings.com/assets/products/ucds23yV/jlab-audio-go-air-pop-true-wireless/design-medium.jpg?format=auto',
 popularity: 1.5,
     ratings: 2,
   },
@@ -119,6 +132,7 @@ popularity: 1.5,
     price: 499,
     category: 'Ear Buds',
     imageUrl: 'https://www.simplytek.lk/cdn/shop/files/Redmi-Buds-5-simplytek-lk-sri-lanka_1220x_crop_center.jpg?v=1709888682',
+    hoverImageUrl: 'https://i.ebayimg.com/images/g/IwMAAOSwPThlD-~U/s-l400.jpg',
 popularity: 3,
     ratings: 8,
   },
@@ -128,6 +142,7 @@ popularity: 3,
     price: 699,
     category: 'JBL',
     imageUrl: 'https://www.simplytek.lk/cdn/shop/files/JBL-Live-670-NC-Headphone-Black-simplytek-lk-sri-lanka_3_610x_crop_center.jpg?v=1699518813',
+    hoverImageUrl: 'https://majorhifi.com/wp-content/uploads/JBL-Live-670NC-Swiveled-Ear-Cup-1.png',
 popularity: 4,
     ratings: 3,
   },
@@ -137,6 +152,7 @@ popularity: 4,
     price: 1699,
     category: 'Laptop',
     imageUrl: 'https://www.laptop.lk/wp-content/uploads/2024/08/ASUS-Vivobook-15-X1504VA-i3-04.webp',
+    hoverImageUrl: 'https://dlcdnwebimgs.asus.com/files/media/aab96bdb-a681-488e-acd5-bbdfd565d20a/v3/features/images/large/1x/s4/main.jpg',
 popularity: 3.5,
     ratings: 6,
   },
@@ -146,6 +162,7 @@ popularity: 3.5,
     price: 1599,
     category: 'Laptop',
     imageUrl: 'https://www.laptop.lk/wp-content/uploads/2023/10/HP-ProBook-450-G9-%E2%80%93-i7.webp',
+    hoverImageUrl: 'https://www.greengreenstore.co.uk/cdn/shop/products/img6372_f84d23b8-3844-4972-bbfd-389d37713226.jpg?v=1697465530&width=1214',
     popularity: 4.5,
     ratings: 7,
   },
@@ -158,6 +175,7 @@ const Products = () => {
   const [priceRange, setPriceRange] = useState([0, 5000]); // Example range
   const [sortOrder, setSortOrder] = useState('price-asc'); // Default sorting by price ascending
   const [searchQuery, setSearchQuery] = useState('');
+  const [hoveredImage, setHoveredImage] = useState({});
 
   const location = useLocation(); // Get search params from URL
 
@@ -169,15 +187,24 @@ const Products = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const searchTerm = queryParams.get('search') || '';
+    const categoryParam = queryParams.get('category') || '';
 
+    let filtered = products;
+
+    // Filter by search term if present
     if (searchTerm) {
-      const filtered = products.filter((product) =>
+      filtered = filtered.filter((product) =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      setFilteredProducts(filtered);
-    } else {
-      setFilteredProducts(products);
     }
+
+    // Filter by category if present
+    if (categoryParam) {
+      setCategoryFilter(categoryParam);
+      filtered = filtered.filter((product) => product.category === categoryParam);
+    }
+
+    setFilteredProducts(filtered);
   }, [location.search, products]);
 
   useEffect(() => {
@@ -186,7 +213,7 @@ const Products = () => {
 
     // Search filter
     if (searchQuery) {
-      filtered = filtered.filter(p =>
+      filtered = filtered.filter((p) =>
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.category.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -194,11 +221,11 @@ const Products = () => {
 
     // Category filter
     if (categoryFilter) {
-      filtered = filtered.filter(p => p.category === categoryFilter);
+      filtered = filtered.filter((p) => p.category === categoryFilter);
     }
 
     // Price range filter
-    filtered = filtered.filter(p => {
+    filtered = filtered.filter((p) => {
       const price = typeof p.price === 'string' ? parseFloat(p.price.replace('$', '')) : p.price;
       return price >= priceRange[0] && price <= priceRange[1];
     });
@@ -246,10 +273,24 @@ const Products = () => {
     setSearchQuery(e.target.value);
   };
 
+  // Function to handle hover image change
+  const handleMouseEnter = (productId, hoverImageUrl) => {
+    setHoveredImage((prevHoveredImage) => ({
+      ...prevHoveredImage,
+      [productId]: hoverImageUrl,
+    }));
+  };
+
+  const handleMouseLeave = (productId) => {
+    setHoveredImage((prevHoveredImage) => ({
+      ...prevHoveredImage,
+      [productId]: null,
+    }));
+  };
+
   return (
-    <div className="product-page">
-      <h1>Products</h1>
-      
+    <>
+      <div className="product-page">
       {/* Filters and Sorting Controls */}
       <div className="filters-container">
         <div className="filter-category">
@@ -263,7 +304,7 @@ const Products = () => {
             <option value="Ear Buds">Ear Buds</option>
           </select>
         </div>
-        
+
         <div className="filter-price">
           <label htmlFor="price">Price Range:</label>
           <input
@@ -286,23 +327,32 @@ const Products = () => {
           </select>
         </div>
       </div>
-      
+
       {/* Display Products */}
-      <div className="product-grid">
-        {filteredProducts.map((product) => (
-          <div key={product._id} className="product-card">
-            <img src={product.imageUrl} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>${product.price}</p>
-            <p>Popularity: {product.popularity}</p>
-            <p>Ratings: {product.ratings}</p>
-            <button>Add to Cart</button>
-          </div>
-        ))}
-      </div>
+<div className="product-grid">
+  {filteredProducts.map((product) => (
+    <div
+      key={product._id}
+      className="product-card"
+      onMouseEnter={() => handleMouseEnter(product._id, product.hoverImageUrl)}
+      onMouseLeave={() => handleMouseLeave(product._id)}
+    >
+      <img
+        src={hoveredImage[product._id] || product.imageUrl}
+        alt={product.name}
+      />
+      <h3>{product.name}</h3>
+      <p>${product.price}</p>
+      <p>Popularity: {product.popularity}</p>
+      <p>Ratings: {product.ratings}</p>
+      <button>Add to Cart</button>
     </div>
+  ))}
+</div>
+    </div>
+    <ServiceFeatures />
+    </>
   );
 };
 
 export default Products;
-

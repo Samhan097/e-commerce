@@ -1,57 +1,126 @@
+/* Popular Products Section */
 .popular-products {
-    padding: 50px 0;
-    text-align: center;
-    background-color: #f9f9f9;
+  padding: 50px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Add animation for when section comes into view */
+.popular-products.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Popular Products Header */
+.popular-products h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Product card */
+.product-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+  cursor: pointer;
+  overflow: hidden; /* Prevents overflow of image */
+}
+
+/* Add animation for product cards when they come into view */
+.product-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Slight zoom-in effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Product card image */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Smooth transition on image hover */
+}
+
+.product-card:hover img {
+  transform: scale(1.1); /* Image zoom effect on hover */
+}
+
+/* Product card text */
+.product-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Button styling */
+.product-card button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #0056b3;
+}
+
+/* CSS for smooth animation trigger when in view (Optional) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  .popular-products h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 20px;
-    justify-items: center;
-  }
-  
-  .product-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-card img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 10px;
-  }
-  
-  .product-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
-  
-  .product-card p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
-  
-  .product-card button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .product-card button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+/* Apply the animation when the section is visible */
+.popular-products {
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* For individual product cards */
+.product-card {
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.product-card:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.product-card:nth-child(even) {
+  animation-delay: 0.4s;
+}
