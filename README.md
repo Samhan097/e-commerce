@@ -40,7 +40,7 @@ npm install
 ```
 
 ### Step 4: Running the Application
-- To run the frontend:
+- To run the frontend go to e-commerce\frontend>:
   ```bash
   npm start
   ```
@@ -48,11 +48,6 @@ npm install
 - To run the backend:
   ```bash
   nodemon server.js
-  ```
-
-- To run both frontend and backend simultaneously from the root `ecommerce` folder:
-  ```bash
-  npm start
   ```
 
 ## Functionalities
